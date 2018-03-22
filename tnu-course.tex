@@ -11,6 +11,18 @@
 \DeclareMathOperator\mean{\mathcal{E}} % expectation
 \usepackage[retainorgcmds]{IEEEtrantools}
 
+\makeatletter
+% we use \prefix@<level> only if it is defined
+\renewcommand{\@seccntformat}[1]{%
+  \ifcsname prefix@#1\endcsname
+    \csname prefix@#1\endcsname
+  \else
+    \csname the#1\endcsname\quad
+  \fi}
+% define \prefix@section
+\newcommand\prefix@section{Exercise $session$.\thesection: }
+\makeatother
+
 %\usepackage{parskip}
 
 \providecommand{\tightlist}{%
@@ -23,7 +35,12 @@
 \pagestyle{fancy}
 \setlength\headheight{32pt}
 \lhead{\includegraphics[width=3cm]{./Logo_TNU_CMYK.png}}
-\chead{Translational Neuromodeling \\ $title$}
+$if(exercise)$
+  \chead{Translational Neuromodeling \\ Spring Semester 2018 -- Exercises $number$}
+$endif$
+$if(solution)$
+  \chead{Translational Neuromodeling \\ Spring Semester 2018 -- Solutions $number$}
+$endif$
 \rhead{$date$}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -32,5 +49,17 @@
 \begin{document}
 
 $body$
+
+$if(exercise)$
+  \vspace{.5cm}
+  \noindent
+  \rule{\textwidth}{0.4pt}
+  \vspace{.5cm}\\
+  \textbf{Announcements:}
+  \begin{itemize}
+  \item You are encouraged to solve the exercises in groups of two to three people.
+  \item Solutions to the exercises on this sheet will be made available in one week. If you have questions about these solutions or the lecture, email them to \emph{tnu-teaching@biomed.ee.ethz.ch}, or ask them during the following lecture/exercise session.
+  \end{itemize}
+$endif$
 
 \end{document}
