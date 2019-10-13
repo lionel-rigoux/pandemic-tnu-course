@@ -10,7 +10,11 @@
 \DeclareMathOperator\entropy{\mathcal{H}} % entropy
 \DeclareMathOperator\mean{\mathcal{E}} % expectation
 \usepackage[retainorgcmds]{IEEEtrantools}
-
+\usepackage{longtable}
+\usepackage{booktabs}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
 \makeatletter
 % we use \prefix@<level> only if it is defined
 \renewcommand{\@seccntformat}[1]{%
@@ -20,7 +24,7 @@
     \csname the#1\endcsname\quad
   \fi}
 % define \prefix@section
-\newcommand\prefix@section{Exercise $session$.\thesection: }
+\newcommand\prefix@section{Exercise \thesection: }
 \makeatother
 
 %\usepackage{parskip}

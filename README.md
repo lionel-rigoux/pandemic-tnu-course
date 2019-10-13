@@ -1,12 +1,10 @@
-# Pandemic recipe for the TNU course handout
+# Pandemics recipe for the TNU course handout
 
-You will need [pandemic](https://www.npmjs.com/package/pandemic) and its dependencies installed.
 
-## Install the Template
+## Installation
 
-```bashrc
-pandemic resource install recipe --as tnu-course  https://github.com/lionel-rigoux/pandemic-tnu-course.git
-```
+You will need [pandemics](https://www.npmjs.com/package/pandemics) and LaTeX installed.
+
 
 ## Write your document in markdown
 
@@ -15,18 +13,12 @@ Create a markdown file with the following front matter:
 ```markdown
 ---
 title: 'Spring Semester 2018 -- Exercice X'
-date: 2018/XX/XX
-pandemic:
-  recipe: tnu-course
+date: XXXX/XX/XX
+pandemics:
+  recipe: github.com:lionel-rigoux/pandemics-tnu-course
 ---
 
-# Exercice 1
+# Name of exercise
 
 Lorem ipsum...
-```
-
-## Compile to pdf
-
-```bashrc
-pandemic publish myExercice.md
 ```
